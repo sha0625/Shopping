@@ -1,5 +1,5 @@
 <template>
-  <div>		
+  <div>	
 		<!-- vant搜索 -->
 		<van-search @input="onInput" @search="onSearch" autofocus show-action shape="round" v-model="kw" placeholder="请输入搜索关键词">
 			
@@ -40,7 +40,7 @@ export default {
 			isShow:true,
 			list:[], //所有数据
 			showList:[], //搜索提示数据
-			kwList:[] //搜索记录
+			kwList:[],//搜索记录
 		}
 	},
 	created() { //初始化保存
@@ -87,7 +87,7 @@ export default {
 			
 			if(!this.kwList.includes(title)){ //不会重复添加相同搜索记录
 				this.kwList.push(title)
-				localStorage.kwList = JSON.stringify(this.kwList)
+				localStorage.kwList = JSON.stringify(this.kwList) //JSON.stringify将json对象转换成字符串形式  localStorage将kwList已键值对方式永久存储
 			}
 			
 		},
@@ -98,7 +98,7 @@ export default {
 			}
 			
 			this.$router.push({
-				path:'/showlist',
+				path:'/Showlist',
 				query:{
 					kw:this.kw
 				}
@@ -114,13 +114,14 @@ export default {
 			this.$dialog.confirm({
 			  message: '确定要清空搜索记录吗？',
 			})
-			  .then(() => {
-			    this.kwList = []
+			//  选择确认~
+			.then(() => {
+				this.kwList = []
 				localStorage.kwList = JSON.stringify(this.kwList)
-			  })
-			  .catch(() => {
-			    // on cancel
-			  });
+			})
+			.catch(() => {
+				// on cancel
+			});
 		}
 		
 	}

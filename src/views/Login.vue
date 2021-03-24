@@ -10,11 +10,11 @@
             <van-col span="18">
                 <van-form :rules="rules1" ref="ruleForm2" :model="ruleForm2" >
                     <van-cell-group prop="username">
-                        <van-field v-model="ruleForm2.username" left-icon="manager" name="用户名" label="用户名" placeholder="用户名" :rules="rules1.username">
+                        <van-field v-model="ruleForm2.username" left-icon="manager" name="用户名" label="用户名" placeholder="用户名" :rules="rules1.username" aria-autocomplete="off">
                         </van-field>
                     </van-cell-group>
                     <van-cell-group prop="password">
-                        <van-field v-model="ruleForm2.password" left-icon="lock" name="密码" label="密码" placeholder="密码" :rules="rules1.password"></van-field>
+                        <van-field v-model="ruleForm2.password" left-icon="lock" name="密码" label="密码" placeholder="密码" :rules="rules1.password" aria-autocomplete="off"></van-field>
                     </van-cell-group>
                     <van-field name="checkbox" label="记住密码" size="small" style="flot">
                         <template #input>
@@ -108,9 +108,10 @@ export default {
                         this.$router.push({path: '/HelloWorld'});
                     }else{
                         this.logining = false;
-                        this.$alert('username or password wrong!', 'info',{
-                            confirmButtonText: 'ok'
-                        })
+                        this.$notify({ type: 'warning', message: 'username or password wrong!', color: '#FFFFFF', background: '#EA331F', });
+                        // this.$alert('username or password wrong!', 'info',{
+                        //     confirmButtonText: 'ok'
+                        // })
                     }
                 }else{
                     console.log('error submit!')

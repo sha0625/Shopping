@@ -1,11 +1,16 @@
 <template>
-  <div>     
-	 <van-card v-for="(item,index) in showGoods" :key="index" num="2" price="2.00" desc="描述信息" :title="item.title" thumb="https://img.yzcdn.cn/vant/ipad.jpeg" />
+  <div>
+	<!-- <van-nav-bar  title="标题"  left-text="返回"  right-text="按钮"  left-arrow  @click-left="onClickLeft"  @click-right="onClickRight"/> -->
+	<van-nav-bar title="搜索列表" left-text="返回" left-arrow @click-left="onblack"/>
+	<van-card v-for="(item,index) in showGoods" :key="index" num="2" price="2.00" desc="描述信息" :title="item.title" thumb="https://img.yzcdn.cn/vant/ipad.jpeg" />
   </div>
 </template>
 <script>
+
 export default {
-	data(){
+	components: {
+  },
+  data(){
 		return{
 			showGoods:[]
 		}
@@ -22,6 +27,14 @@ export default {
 				}
 			})
 		})		
+	},
+	methods: {
+		// 返回
+		onblack(){
+			this.$router.push({
+				path:'/Seach'
+			})
+		}
 	}
 }
 </script>
