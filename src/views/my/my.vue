@@ -1,26 +1,29 @@
 <template>
+<!--
   <van-tabbar v-model="active" class="active_tab">
-    <van-tabbar-item
-      v-for="(item,index) in tabbars"
-      :key="index"
-      @click="tab(index,item.name)"
-    >
+    <van-tabbar-item v-for="(item,index) in tabbars" :key="index" @click="tab(index,item.name)" >
       <span :class="currIndex == index ? active:''">{{item.title}}</span>
       <template slot="icon" slot-scope="props">
         <img :src="props.active ? item.active : item.normal">
       </template>
     </van-tabbar-item>
   </van-tabbar>
+-->
+  <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+    <p>刷新次数: {{ count }}</p>
+  </van-pull-refresh>
 </template>
  
 <script>
-import { Button, Tabbar, TabbarItem  } from 'vant';
+import { Button, Tabbar, TabbarItem, PullRefresh, Toast } from 'vant';
 
 export default {
   name: "tabbar",
+  components: { Button, [Tabbar.name]: Tabbar, [TabbarItem.name]: TabbarItem, [PullRefresh.name]: PullRefresh},
   data() {
     return {
-    components: { Button, [Tabbar.name]: Tabbar, [TabbarItem.name]: TabbarItem},
+      count: 0,
+      isLoading: false,    
       currIndex: 0,
       active: 0,
       tabbars: [
@@ -49,7 +52,14 @@ export default {
     tab(index, val) {
       this.currIndex = index;
       this.$router.push(val);
-    }
+    },
+    onRefresh() {
+      setTimeout(() => {
+        Toast('刷新成功');
+        this.isLoading = false;
+        this.count++;
+      }, 1000);
+    },
   }
 };
 </script>
