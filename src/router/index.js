@@ -7,6 +7,7 @@ import Login from '@/views/Login'
 import Home from '@/views/home/home'
 import My from '@/views/my/my'
 import Seach from '@/components/Seach/Seach'
+
 import Showlist from '@/components/Seach/ShowList'
 // import Tabbar from '@/components/Tabbar/Tabbar'
 
@@ -25,7 +26,7 @@ export default new Router({
       component: HelloWorld
     },
     {
-      path: '/home',
+      path: '/Home',
       name: 'Home',
       component: Home
     },
@@ -43,7 +44,8 @@ export default new Router({
       path: '/Showlist',
       name: 'Showlist',
       component: Showlist
-    }
+    },
+
     // {
     //   path: '/Tabbar',
     //   name: 'Tabbar',

@@ -1,31 +1,31 @@
 {
     "data": [
         {
-            "title": "html2"
+            "title": "html2", "count": 2
         },
         {
-            "title": "html"
+            "title": "html", "count": 2
         },
         {
-            "title": "css"
+            "title": "css", "count": 1
         },
         {
-            "title": "javascript"
+            "title": "javascript", "count": 2
         },
         {
-            "title": "jquery"
+            "title": "jquery", "count": 3
         },
         {
-            "title": "vue"
+            "title": "vue", "count": 5
         },
         {
-            "title": "node.js"
+            "title": "node.js", "count": 0
         },
         {
-            "title": "bootstrap"
+            "title": "bootstrap", "count": 0
         },
         {
-            "title": "react"
+            "title": "react", "count": 1
         }
     ],
     "list": [
@@ -82,6 +82,77 @@
 		},
 		{
 		    "title": "react从开发到脱发"
-		}
+		},
+        {
+            "img":"../../static/hot/assume-4.jpg",
+            "title":"Aveeno Baby | 婴儿温和洗发水 含天然燕麦提取物含天然燕麦提取物",
+            "dprice":"$10.99",
+            "mpirce":"¥74",
+            "like":"0",
+            "colour":"1"
+        },
+        {
+            "img":"../../static/hot/assume-3.jpg",
+            "title":"Hugo Boss | Hugo Boss Multi-stripe Cotton Socks In Black",
+            "dprice":"$10.99",
+            "mpirce":"¥74",
+            "like":"0",
+            "colour":"1"
+        },
+        {
+            "img":"../../static/hot/assume-2.jpg",
+            "title":"Theory | Piazza Plaid Wool Blazer",
+            "dprice":"$10.99",
+            "mpirce":"¥74",
+            "like":"0",
+            "colour":"1"
+        },
+        {
+            "img":"../../static/hot/assume-1.jpg",
+            "title":"Tommy Hilfiger | 白T恤","dprice":"$10.99",
+            "mpirce":"¥74",
+            "like":"0",
+            "colour":"1"
+        },
+        {
+            "img":"../../static/hot/assume-5.jpg",
+            "title":"Essentials | Black Logo Long Sleeve Polo",
+            "dprice":"$77.65",
+            "mpirce":"¥514",
+            "like":"0",
+            "colour":"1"
+        },
+        {
+            "img":"../../static/hot/assume-6.jpg",
+            "title":"Essentials | Off-White Mock Neck Pullover Sweatshirt",
+            "dprice":"$86.91",
+            "mpirce":"¥576",
+            "like":"0",
+            "colour":"1"
+        },
+        {
+            "img":"../../static/hot/assume-7.jpg",
+            "title":"Essentials | 三件装 后领口LOGO T恤",
+            "dprice":"$122.60",
+            "mpirce":"¥812",
+            "like":"0",
+            "colour":"1"
+        },
+        {
+            "img":"../../static/hot/assume-8.jpg",
+            "title":"Essentials | Black Mock Neck Pullover Sweatshirt",
+            "dprice":"$94",
+            "mpirce":"¥623",
+            "like":"0",
+            "colour":"1"
+        },
+        {
+            "img":"../../static/hot/assume-9.jpg",
+            "title":"Essentials | Crystal Heart Two-Row Toe Ring in Fine Silver-Plate",
+            "dprice":"$40",
+            "mpirce":"¥265",
+            "like":"0",
+            "colour":"1"
+        }
     ]
 }

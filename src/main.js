@@ -24,6 +24,7 @@ new Vue({
   el: '#app',
   router,
   ElementUI,
+  Vant,
   // store,
   components: { App ,HelloWorld},
   template: '<App/>'

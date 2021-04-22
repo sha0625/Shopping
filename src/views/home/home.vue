@@ -6,3 +6,10 @@ export default {
     
 }
 </script>
+<style scoped>
+div{
+width: 100px;
+height: 100px;
+  color: red;
+}
+</style>
