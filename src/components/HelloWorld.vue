@@ -108,12 +108,12 @@
       <div class="assume">
         <h2>猜你喜欢</h2>
         <div class="content">
-          <div class="product-item" v-for="(item,index) in yourlove" :key="index">
+          <div class="product-item" v-for="(item,index) in list" :key="index" v-if="index < productlen">
             <div class="img-wrap">
               <img alt="" :src="item.img">
             </div>        
             <div class="detail">
-              <p class="name">{{item.name}}</p>
+              <p class="name">{{item.title}}</p>
               <span class="dollar-price">{{item.dprice}}</span>
               <div class="main-price-area">
                 <p class="main-price ">{{item.mpirce}}</p>
@@ -125,6 +125,9 @@
             </div>          
           </div>
         </div>
+
+        <div class="boxpanel" @scroll="scrollButton($event)" style=" "></div>
+
       </div>
       <!-- END 猜你喜欢 -->
     </van-tab>
@@ -147,12 +150,14 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
+      productlen:4,
       loading:false,//加载动画控制
       showmore:false,//加载按钮
       showlen:1,//计数
       active:0,//标签栏控制
       meetingname:'',//搜索框控制
       tabactive:'',
+      list:[],
       images: [
         '../../static/swiper/swiper03.png',
 			  '../../static/swiper/swiper04.png',
@@ -178,14 +183,24 @@ export default {
           'tit':'Madaluxe Vault奢牌腕表2.7折起','text':'[4]留白 推荐'},
       ],//精选活动
       yourlove: [
-        {'img':'../../static/hot/assume-4.jpg','name':'Aveeno Baby | 婴儿温和洗发水 含天然燕麦提取物含天然燕麦提取物','dprice':'$10.99','mpirce':'¥74','like':'0','colour':'1'},
-        {'img':'../../static/hot/assume-3.jpg','name':'Hugo Boss | Hugo Boss Multi-stripe Cotton Socks In Black','dprice':'$10.99','mpirce':'¥74','like':'0','colour':'1'},
-        {'img':'../../static/hot/assume-2.jpg','name':'Theory | Piazza Plaid Wool Blazer','dprice':'$10.99','mpirce':'¥74','like':'0','colour':'1'},
-        {'img':'../../static/hot/assume-1.jpg','name':'Tommy Hilfiger | 白T恤','dprice':'$10.99','mpirce':'¥74','like':'0','colour':'1'},
+        {'img':'../../static/list/assume-4.jpg','name':'Aveeno Baby | 婴儿温和洗发水 含天然燕麦提取物含天然燕麦提取物','dprice':'$10.99','mpirce':'¥74','like':'0','colour':'1'},
+        {'img':'../../static/list/assume-3.jpg','name':'Hugo Boss | Hugo Boss Multi-stripe Cotton Socks In Black','dprice':'$10.99','mpirce':'¥74','like':'0','colour':'1'},
+        {'img':'../../static/list/assume-2.jpg','name':'Theory | Piazza Plaid Wool Blazer','dprice':'$10.99','mpirce':'¥74','like':'0','colour':'1'},
+        {'img':'../../static/list/assume-1.jpg','name':'Tommy Hilfiger | 白T恤','dprice':'$10.99','mpirce':'¥74','like':'0','colour':'1'},
       ],//猜你喜欢
     }
   },
   created(){
+  },
+  mounted(){
+    const url = '../../static/sea.json'
+    this.$axios.get(url).then(res=>{
+      this.list = res.data.list
+      // console.log(this.list)
+    })
+
+    // 添加滚动事件、检测滚动到页面底部
+    // window.addEventListener('scroll',this.scrollButton)
   },
   methods: {
     onSearch(){
@@ -195,13 +210,32 @@ export default {
     },
     load(){
       this.loading = true;
+      
       setTimeout(() => {
         this.loading = false;
         this.showlen = this.showlen + 1
-      }, 1100)
-
-      if(this.activities.length===this.showlen){
-        this.showmore=true
+        if(this.activities.length===this.showlen){
+          this.showmore=true
+        }
+      }, 1000) 
+    },
+    scrollButton(e){
+      // var s = window.screen.height
+      // var c = document.body.scrollTop
+      // var cli = document.documentElement.clientHeight;
+      // console.log("clientHeight-"+cli)
+      // console.log("scroll-"+s)
+      // console.log("c-"+c)
+      // if (((window.screen.height + document.body.scrollTop) > (document.body.clientHeight)) && this.REQUIRE) {
+      //     console.log("1")
+      // }
+      let self = this
+      let Scroll = e.target
+      let scrollHeight = Scroll.scrollHeight - Scroll.clientHeight
+      self.scrollTop = Scroll.scrollTop
+      if(scrollHeight - Scroll.scrollTop < 100 && !self.loadflag){
+        console.log("到底了")
+        self.showmore +=10
       }
     }
   }
@@ -330,7 +364,8 @@ h2{
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center;    
+  align-items: center;
+  z-index: 99;
 }
 .loading-content .image-wrap {
   position: relative;

@@ -69,7 +69,6 @@ export default {
 			// console.log(res.data.data[0])
 			this.list = res.data.data
 		})
-		this.list
 	},
 	methods:{
 		sortByKey(array, key){//热门排序

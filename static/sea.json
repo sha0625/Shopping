@@ -22,69 +22,143 @@
             "title": "node.js", "count": 0
         },
         {
-            "title": "bootstrap", "count": 0
+            "title": "react", "count": 1
         },
         {
-            "title": "react", "count": 1
+            "title":"Essentials","count": 4
         }
     ],
     "list": [
-        {
-            "title": "vue从入门到放弃"
+        {   
+            "img":"../../static/list/ass-1.jpg",
+            "title": "vue2从入门到放弃",
+            "dprice":"$10.99",
+            "mpirce":"¥74",
+            "like":"0",
+            "colour":"1"
         },
         {
-            "title": "vue从开发到脱发"
+            "img":"../../static/list/ass-1.jpg",
+            "title": "vue从开发到脱发",
+            "dprice":"$10.99",
+            "mpirce":"¥74",
+            "like":"0",
+            "colour":"1"
         },
         {
-            "title": "node.js从开发到放弃"
+            "img":"../../static/list/ass-2.jpg",
+            "title": "node.js从开发到放弃",
+            "dprice":"$10.99",
+            "mpirce":"¥74",
+            "like":"0",
+            "colour":"1"
         },
         {
-            "title": "node.js从开发到脱发"
+            "img":"../../static/list/ass-2.jpg",
+            "title": "node.js从开发到脱发",
+            "dprice":"$10.99",
+            "mpirce":"¥74",
+            "like":"0",
+            "colour":"1"
         },
 		{
-		    "title": "html从入门到放弃"
+            "img":"../../static/list/ass-3.jpg",
+		    "title": "html从入门到放弃",
+            "dprice":"$10.99",
+            "mpirce":"¥74",
+            "like":"0",
+            "colour":"1"
 		},
 		{
-		    "title": "html从开发到脱发"
+            "img":"../../static/list/ass-3.jpg",
+		    "title": "html从开发到脱发",
+            "dprice":"$10.99",
+            "mpirce":"¥74",
+            "like":"0",
+            "colour":"1"
 		},
         {
-		    "title": "html2从入门到放弃"
+            "img":"../../static/list/ass-4.jpg",
+		    "title": "html2从入门到放弃",
+            "dprice":"$10.99",
+            "mpirce":"¥74",
+            "like":"0",
+            "colour":"1"
 		},
 		{
-		    "title": "html2从开发到脱发"
+            "img":"../../static/list/ass-4.jpg",
+		    "title": "html2从开发到脱发",
+            "dprice":"$10.99",
+            "mpirce":"¥74",
+            "like":"0",
+            "colour":"1"
 		},
 		{
-		    "title": "css从开发到放弃"
+            "img":"../../static/list/ass-4.jpg",
+		    "title": "css从开发到放弃",
+            "dprice":"$10.99",
+            "mpirce":"¥74",
+            "like":"0",
+            "colour":"1"
 		},
 		{
-		    "title": "css从开发到脱发"
+            "img":"../../static/list/ass-4.jpg",
+		    "title": "css从开发到脱发",
+            "dprice":"$10.99",
+            "mpirce":"¥74",
+            "like":"0",
+            "colour":"1"
 		},
 		{
-		    "title": "javascript从入门到放弃"
+            "img":"../../static/list/ass-5.jpg",
+		    "title": "javascript从入门到放弃",
+            "dprice":"$10.99",
+            "mpirce":"¥74",
+            "like":"0",
+            "colour":"1"
 		},
 		{
-		    "title": "javascript从开发到脱发"
+            "img":"../../static/list/ass-5.jpg",
+		    "title": "javascript从开发到脱发",
+            "dprice":"$10.99",
+            "mpirce":"¥74",
+            "like":"0",
+            "colour":"1"
 		},
 		{
-		    "title": "jquery从开发到放弃"
+            "img":"../../static/list/ass-6.jpg",
+		    "title": "jquery从开发到放弃",
+            "dprice":"$10.99",
+            "mpirce":"¥74",
+            "like":"0",
+            "colour":"1"
 		},
 		{
-		    "title": "jquery从开发到脱发"
+            "img":"../../static/list/ass-6.jpg",
+		    "title": "jquery从开发到脱发",
+            "dprice":"$10.99",
+            "mpirce":"¥74",
+            "like":"0",
+            "colour":"1"
 		},
 		{
-		    "title": "bootstrap从入门到放弃"
+            "img":"../../static/list/ass-7.jpg",
+		    "title": "react从开发到放弃",
+            "dprice":"$10.99",
+            "mpirce":"¥74",
+            "like":"0",
+            "colour":"1"
 		},
 		{
-		    "title": "bootstrap从开发到脱发"
-		},
-		{
-		    "title": "react从开发到放弃"
-		},
-		{
-		    "title": "react从开发到脱发"
+            "img":"../../static/list/ass-7.jpg",
+		    "title": "react从开发到脱发",
+            "dprice":"$10.99",
+            "mpirce":"¥74",
+            "like":"0",
+            "colour":"1"
 		},
         {
-            "img":"../../static/hot/assume-4.jpg",
+            "img":"../../static/list/assume-4.jpg",
             "title":"Aveeno Baby | 婴儿温和洗发水 含天然燕麦提取物含天然燕麦提取物",
             "dprice":"$10.99",
             "mpirce":"¥74",
@@ -92,7 +166,7 @@
             "colour":"1"
         },
         {
-            "img":"../../static/hot/assume-3.jpg",
+            "img":"../../static/list/assume-3.jpg",
             "title":"Hugo Boss | Hugo Boss Multi-stripe Cotton Socks In Black",
             "dprice":"$10.99",
             "mpirce":"¥74",
@@ -100,7 +174,7 @@
             "colour":"1"
         },
         {
-            "img":"../../static/hot/assume-2.jpg",
+            "img":"../../static/list/assume-2.jpg",
             "title":"Theory | Piazza Plaid Wool Blazer",
             "dprice":"$10.99",
             "mpirce":"¥74",
@@ -108,14 +182,14 @@
             "colour":"1"
         },
         {
-            "img":"../../static/hot/assume-1.jpg",
+            "img":"../../static/list/assume-1.jpg",
             "title":"Tommy Hilfiger | 白T恤","dprice":"$10.99",
             "mpirce":"¥74",
             "like":"0",
             "colour":"1"
         },
         {
-            "img":"../../static/hot/assume-5.jpg",
+            "img":"../../static/list/assume-5.jpg",
             "title":"Essentials | Black Logo Long Sleeve Polo",
             "dprice":"$77.65",
             "mpirce":"¥514",
@@ -123,7 +197,7 @@
             "colour":"1"
         },
         {
-            "img":"../../static/hot/assume-6.jpg",
+            "img":"../../static/list/assume-6.jpg",
             "title":"Essentials | Off-White Mock Neck Pullover Sweatshirt",
             "dprice":"$86.91",
             "mpirce":"¥576",
@@ -131,7 +205,7 @@
             "colour":"1"
         },
         {
-            "img":"../../static/hot/assume-7.jpg",
+            "img":"../../static/list/assume-7.jpg",
             "title":"Essentials | 三件装 后领口LOGO T恤",
             "dprice":"$122.60",
             "mpirce":"¥812",
@@ -139,7 +213,7 @@
             "colour":"1"
         },
         {
-            "img":"../../static/hot/assume-8.jpg",
+            "img":"../../static/list/assume-8.jpg",
             "title":"Essentials | Black Mock Neck Pullover Sweatshirt",
             "dprice":"$94",
             "mpirce":"¥623",
@@ -147,7 +221,7 @@
             "colour":"1"
         },
         {
-            "img":"../../static/hot/assume-9.jpg",
+            "img":"../../static/list/assume-9.jpg",
             "title":"Essentials | Crystal Heart Two-Row Toe Ring in Fine Silver-Plate",
             "dprice":"$40",
             "mpirce":"¥265",
