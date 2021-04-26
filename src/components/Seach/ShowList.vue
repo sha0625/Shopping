@@ -2,8 +2,7 @@
   <div>	
 	<!-- <van-nav-bar title="搜索列表" left-text="返回" left-arrow @click-left="onblack"/> -->
 	<!-- vant搜索 -->
-	<van-search  autofocus show-action shape="round"  placeholder="请输入搜索关键词" style="">
-		
+	<van-search  autofocus show-action shape="round"  placeholder="请输入搜索关键词" style="">		
 		<template #left>
 			<van-icon @click="onblack" style="margin-right: 5px;" size="22px" name="arrow-left" />
 		</template>			
@@ -12,6 +11,7 @@
 		</template>
 		
 	</van-search>
+	
 	<!-- 筛选~ -->
 	<div class="filterContent ">
 		<div class="filterChoose">
@@ -36,11 +36,10 @@
 				<img src="../../assets/img/button.png" alt="">
 			</div>
 		</div>
-	</div>
-	
+	</div>	
 	<!-- END 筛选 -->
 
-	<div class="content">
+	<div class="productList">
 		<div class="product-item" v-for="(item,index) in activities" :key="index">
 		<div class="img-wrap">
 			<img alt="" :src="item.img">
@@ -58,7 +57,6 @@
 		</div>
 		</div>
 	</div>
-	<!-- <van-card v-for="(item,index) in activities" :key="index" num="2" price="2.00" desc="描述信息" :title="item.title" thumb="https://img.yzcdn.cn/vant/ipad.jpeg" /> -->
   </div>
 </template>
 <script>
@@ -73,7 +71,7 @@ export default {
 	},
 	created() {
 		let kw = this.$route.query.kw
-		const url = '../../../static/sea.json'		
+		const url = '../../../static/sea.json'
 		this.$axios.get(url).then(res=>{
 			let goods = res.data.list
 				
@@ -82,7 +80,7 @@ export default {
 					this.activities.push(item)
 				}
 			})
-		})		
+		})
 	},
 	methods: {
 		// 返回
@@ -139,7 +137,7 @@ h2{
   padding: 0px;
   margin: 0px;
 }
-.content{
+.productList{
   display: flex;
   flex-wrap: wrap;
   margin-top: 90px;

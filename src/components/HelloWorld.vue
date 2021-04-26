@@ -7,8 +7,8 @@
     <!--标签栏Tabbar-->
     <van-tabbar v-model="active" >
       <van-tabbar-item replace to="/home" icon="home-o">Hemo</van-tabbar-item>
-      <van-tabbar-item replace to="/my" icon="search">标签</van-tabbar-item>
-      <van-tabbar-item icon="friends-o">标签</van-tabbar-item>
+      <van-tabbar-item replace to="/Category" icon="search">分类</van-tabbar-item>
+      <van-tabbar-item icon="friends-o">我的</van-tabbar-item>
     </van-tabbar>
   <van-tabs v-model="tabactive" color="#323233" swipeable>
     <van-tab title="最新">
@@ -125,11 +125,10 @@
             </div>          
           </div>
         </div>
-
-        <div class="boxpanel" @scroll="scrollButton($event)" style=" "></div>
-
-      </div>
+        <div class="tip" v-if="tipactive">别拉了！到底啦~</div>
       <!-- END 猜你喜欢 -->
+      </div>
+
     </van-tab>
     <van-tab title="潮牌">潮牌</van-tab>
     <van-tab title="美妆">美妆</van-tab>
@@ -150,14 +149,17 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      productlen:4,
+      tipactive:false,
+      REQUIRE: true, // 是否可以加载数据
+      productlen:5, //每页显示5个
       loading:false,//加载动画控制
       showmore:false,//加载按钮
       showlen:1,//计数
       active:0,//标签栏控制
       meetingname:'',//搜索框控制
-      tabactive:'',
-      list:[],
+      tabactive:'',//轮播
+      pages:1,//第一页
+      list:[],//全部数据
       images: [
         '../../static/swiper/swiper03.png',
 			  '../../static/swiper/swiper04.png',
@@ -200,7 +202,7 @@ export default {
     })
 
     // 添加滚动事件、检测滚动到页面底部
-    // window.addEventListener('scroll',this.scrollButton)
+    window.addEventListener('scroll',this.scrollBottom)
   },
   methods: {
     onSearch(){
@@ -209,8 +211,7 @@ export default {
 			})
     },
     load(){
-      this.loading = true;
-      
+      this.loading = true;      
       setTimeout(() => {
         this.loading = false;
         this.showlen = this.showlen + 1
@@ -219,23 +220,26 @@ export default {
         }
       }, 1000) 
     },
-    scrollButton(e){
-      // var s = window.screen.height
-      // var c = document.body.scrollTop
-      // var cli = document.documentElement.clientHeight;
-      // console.log("clientHeight-"+cli)
-      // console.log("scroll-"+s)
-      // console.log("c-"+c)
-      // if (((window.screen.height + document.body.scrollTop) > (document.body.clientHeight)) && this.REQUIRE) {
-      //     console.log("1")
-      // }
-      let self = this
-      let Scroll = e.target
-      let scrollHeight = Scroll.scrollHeight - Scroll.clientHeight
-      self.scrollTop = Scroll.scrollTop
-      if(scrollHeight - Scroll.scrollTop < 100 && !self.loadflag){
-        console.log("到底了")
-        self.showmore +=10
+    scrollBottom(){
+      // var scroll = (window.screen.height+document.documentElement.scrollTop)-30
+      // var clientHeight = document.body.clientHeight;
+      // console.log("clientHeight-"+clientHeight)
+      // console.log("scroll-"+scroll)
+      if (((window.screen.height + document.documentElement.scrollTop)-30 >= (document.body.clientHeight)) && this.REQUIRE) {
+        this.loading = true;
+        this.pages = this.pages+1
+        console.log("pages--"+this.pages)
+        setTimeout(() => {
+          this.loading = false;
+          this.productlen = this.productlen+5
+          if( Math.ceil(this.list.length/5) === this.pages){
+            this.REQUIRE = false;
+            setTimeout(() => {
+              this.tipactive= true
+              // this.tipactive= false
+            },500)
+          }
+        }, 1000)
       }
     }
   }
@@ -253,7 +257,6 @@ h2{
   margin: 0px;
 }
 .assume{
-  margin-bottom: 30px;
   background: #fff;
   padding-top: 15px;
 }
@@ -339,6 +342,16 @@ h2{
   padding: 0px 5px;
   position: relative;
 }
+.tip{
+  margin-bottom: 50px;
+  height: 20px;
+  width: 100%;
+  background: #f4f4f4a8;
+  font-size: 12px;
+  text-align: center;
+  line-height: 20px;
+}
+
 /* #endregion */
 /* #region  Loading */
 @keyframes Loading {
@@ -403,7 +416,6 @@ h2{
   font-size: 15px;
   font-weight: 700;
   text-align: center;
-  margin-top: 10px;
   margin-bottom: 20px;
 }
 .activitie h2{
@@ -462,7 +474,7 @@ p{
   height: 13px;
   background: rgb(184, 176, 176);
   position: absolute;
-  top: 388px;
+  top: 378px;
   left: 108px;
 }
 .Hotlist .hot_top img,.Hotlist .hot_top span{
@@ -534,6 +546,7 @@ p{
   width: 100%;
   height: 100%;
   background: #F7F7F7;
+  margin-bottom: 30px;
 }
 h1, h2 {
   font-weight: normal;
@@ -546,5 +559,4 @@ li {
   margin: 0 10px;
   display: inline-block;
 }
-
 </style>

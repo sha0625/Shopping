@@ -9,22 +9,16 @@
     </van-tabbar-item>
   </van-tabbar>
 -->
-  <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
-    <p>刷新次数: {{ count }}</p>
-  </van-pull-refresh>
+<sea/>
 </template>
  
 <script>
-import { Button, Tabbar, TabbarItem, PullRefresh, Toast } from 'vant';
-
+import sea from '../../components/tabbar/seachItem.vue'
 export default {
   name: "tabbar",
-  components: { Button, [Tabbar.name]: Tabbar, [TabbarItem.name]: TabbarItem, [PullRefresh.name]: PullRefresh},
+  components: {sea },
   data() {
     return {
-      count: 0,
-      isLoading: false,    
-      currIndex: 0,
       active: 0,
       tabbars: [
         {
@@ -52,13 +46,6 @@ export default {
     tab(index, val) {
       this.currIndex = index;
       this.$router.push(val);
-    },
-    onRefresh() {
-      setTimeout(() => {
-        Toast('刷新成功');
-        this.isLoading = false;
-        this.count++;
-      }, 1000);
     },
   }
 };

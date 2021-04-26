@@ -5,7 +5,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Login from '@/views/Login'
 import Home from '@/views/home/home'
-import My from '@/views/my/my'
+import Category from '@/views/Category/Category'
 import Seach from '@/components/Seach/Seach'
 
 import Showlist from '@/components/Seach/ShowList'
@@ -31,9 +31,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/my',
-      name: 'My',
-      component: My
+      path: '/Category',
+      name: 'Category',
+      component: Category
     },
     {
       path: '/Seach',
