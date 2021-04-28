@@ -12,9 +12,9 @@ import Vant,{Lazyload} from 'vant';
 import axios from 'axios'
 import 'vant/lib/index.css';
 import VueResource from 'vue-resource'
+// import './utils/rem.js'
 
 Vue.use(VueResource)
-
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(Vant);

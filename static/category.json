@@ -1,31 +1,102 @@
 {
-    "data": [
+    "items": [
+        { 
+            "text": "潮鞋"},
         {
-            "title": "html2", "count": 2
+            "text": "潮玩数码" 
+        },
+        { 
+            "text": "热门"
+        }, 
+        { 
+            "text": "鞋靴"
+        },
+        { 
+            "text": "美护"
+        }, 
+        { 
+            "text": "箱包" 
+        },
+        { 
+            "text": "女装" 
+        }, 
+        {
+            "text": "男装" 
         },
         {
-            "title": "html", "count": 2
+            "text": "配饰"
+        }, 
+        {
+            "text": "婴童" 
         },
         {
-            "title": "css", "count": 1
-        },
+            "text": "食品保健"
+        }, 
         {
-            "title": "javascript", "count": 2
-        },
-        {
-            "title": "jquery", "count": 3
-        },
-        {
-            "title": "vue", "count": 5
-        },
-        {
-            "title": "node.js", "count": 0
-        },
-        {
-            "title": "react", "count": 1
-        },
-        {
-            "title":"Essentials","count": 4
+            "text": "百货" 
         }
+    ],
+    "list":[
+        {
+            "img" :"../static/category/Jordan1.jpg",
+            "text" :"Jordan1"
+        },
+        {
+            "img" :"../static/category/Jordan5.jpg",
+            "text" :"Jordan5"
+        },
+        {
+            "img" :"../static/category/Jordan6.jpg",
+            "text" :"Jordan6"
+        },
+        {
+            "img" :"../static/category/Jordan8.jpg",
+            "text" :"Jordan8"
+        },
+        {
+            "img" :"../static/category/Jordan9.jpg",
+            "text" :"Jordan9"
+        },
+        {
+            "img" :"../static/category/Jordan11.jpg",
+            "text" :"Jordan11"
+        },
+        {
+            "img" :"../static/category/Jordan11.jpg",
+            "text" :"Jordan11"
+        }
+    ],
+    "kiss":[
+        {
+            "title":[
+                {
+                    "img" :"../static/category/Jordan1.jpg",
+                    "text" :"Jordan1"
+                },
+                {
+                    "img" :"../static/category/Jordan5.jpg",
+                    "text" :"Jordan5"
+                },
+                {
+                    "img" :"../static/category/Jordan6.jpg",
+                    "text" :"Jordan6"
+                }
+            ],
+            "title2":[
+                {
+                    "img" :"../static/category/Jordan1.jpg",
+                    "text" :"Jordan1"
+                },
+                {
+                    "img" :"../static/category/Jordan5.jpg",
+                    "text" :"Jordan5"
+                },
+                {
+                    "img" :"../static/category/Jordan6.jpg",
+                    "text" :"Jordan6"
+                }
+            ]
+        }
+
     ]
 }

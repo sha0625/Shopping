@@ -117,14 +117,12 @@ export default {
 		const url = '../../../static/sea.json'
 		let kw = this.$route.query.kw
 
-		console.log(kw)
 		this.$axios.get(url).then(res=>{
 			this.list = res.data.data
-			this.goods = res.data.list
-				
-			
-			console.log(this.activities)
+			this.goods = res.data.list				
 		})
+		// console.log(this.goods)			
+
 	},
 	methods:{
 		sortByKey(array, key){//热门排序
@@ -160,24 +158,21 @@ export default {
 		},
 		searchTs(title){ //点击搜索提示或搜索记录，展示对应商品
 			// count = count+1
-
 			this.mainshow = true
 			this.seachshow = false
+
 			// const url = '../../../static/sea.json'
+			// this.$axios.get(url).then(res=>{
+			// 	this.goods = res.data.list		
+			// })
+			// console.log(this.goods)			
 			this.goods.map(item=>{
 				if(item.title.includes(title)){
+					// this.activities.length = 0
 					this.activities.push(item)
+
 				}
 			})
-			// this.$router.push({
-			// 	path:'/Seach',
-			// 	query:{
-			// 		kw:title,
-					// cot:count
-			// 	}
-			// })
-
-			// 
 			// console.log("start-"+count)
 			// count = count
 			if(!this.kwList.includes(title)){ //不会重复添加相同搜索记录
@@ -187,17 +182,28 @@ export default {
 			
 		},
 		onSearch(){ //确定搜索或点击搜索时触发
-			console.log('onSearch。。。');			
+			console.log('onSearch。。。');
+
 			if(this.kw.trim() == ''){ //判断内容是否为空
 				return
 			}
-			
-			this.$router.push({
-				path:'/Showlist',
-				query:{
-					kw:this.kw
+			// const url = '../../../static/sea.json'
+			// this.$axios.get(url).then(res=>{
+			// 	this.goods = res.data.list					
+			// })
+			this.goods.map(item=>{
+				if(item.title.includes(this.kw)){
+					// this.activities.length = 0
+
+					this.activities.push(item)
 				}
 			})
+			// this.$router.push({
+			// 	path:'/Showlist',
+			// 	query:{
+			// 		kw:this.kw
+			// 	}
+			// })
 			if(!this.kwList.includes(this.kw.trim())){ //不会重复添加相同搜索记录
 				this.kwList.push(this.kw)
 				localStorage.kwList = JSON.stringify(this.kwList)

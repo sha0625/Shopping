@@ -1,6 +1,6 @@
 <template>
     <div class="login-container">
-        <van-row type="flex" justify="center" class="img">
+        <van-row type="flex" justify="center" class="img" style="margin-top: 25px;">
             <van-col span="1">&nbsp</van-col>
             <van-col span="22"><img src="../assets/top.png" alt="" width="100%" height="100%"></van-col>
             <van-col span="1">&nbsp</van-col>

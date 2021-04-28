@@ -17,7 +17,7 @@
         <van-swipe :autoplay="5000" width="90%">
           <van-swipe-item v-for="(image, index) in images" :key="index">
             <div>
-              <img v-lazy="image" width="100%" height="130px" />
+              <img v-lazy="image" width="100%" height="100%" />
             </div>
           </van-swipe-item>
         </van-swipe>
@@ -33,27 +33,31 @@
         <div class="hot_top">
           <img src="../../static/index/icon.png" alt="" width="18px">
           <span class="span">热卖榜单</span> 
-          <i></i> 
+          <div class="i"></div>
           <span>看看大家都在买什么</span>
         </div>
         <div class="hotsale">
           <van-row>
             <van-col span="12">
               <div class="host_content"> 
-                <div>
+                <div class="sub-left">
                   <p>男鞋榜</p>
                   <span>热销1486件</span>
                 </div>
-                <img src="../assets/hot/hot_1.jpg" width="77px" alt="">
+                <div class="sub-right">
+                  <img src="../assets/hot/hot_1.jpg" alt="">
+                </div>
               </div>
             </van-col>
             <van-col span="12">
               <div class="host_content"> 
-                <div>
+                <div class="sub-left">
                   <p>美护榜</p>
                   <span>热销1865件</span>
                 </div>
-                <img src="../assets/hot/hot_2.jpg" width="77px" alt="">
+                <div class="sub-right">
+                  <img src="../assets/hot/hot_2.jpg" alt="">
+                </div>
               </div>
             </van-col>
           </van-row>
@@ -81,7 +85,7 @@
                 <img :src="act.icon" alt="">
                 <div>
                   <p>{{act.tit}}</p>
-                  <span>{{act.text}}index:{{index}}</span>
+                  <span>{{act.text}}</span>
                 </div>          
               </div>                  
           </div>
@@ -176,13 +180,13 @@ export default {
       ],//热榜
       activities: [
         {'img':'../../static/hot/jingxuan_1.png','icon':'../../static/hot/jingxuan_3.png',
-          'tit':'Madaluxe Vault奢牌腕表2.7折起','text':'[1]别样 推荐'},
+          'tit':'Madaluxe Vault奢牌腕表2.7折起','text':'别样 推荐'},
         {'img':'../../static/hot/jingxuan_2.jpg','icon':'../../static/hot/jingxuan_4.png',
-          'tit':'别样独家|8折收香缇卡、海蓝之谜','text':'[2]留白 推荐'},
+          'tit':'别样独家|8折收香缇卡、海蓝之谜','text':'留白 推荐'},
         {'img':'../../static/hot/jingxuan_2.jpg','icon':'../../static/hot/jingxuan_4.png',
-          'tit':'别样独家|8折收香缇卡、海蓝之谜','text':'[3]留白 推荐'},
+          'tit':'别样独家|8折收香缇卡、海蓝之谜','text':'别样 推荐'},
         {'img':'../../static/hot/jingxuan_1.png','icon':'../../static/hot/jingxuan_3.png',
-          'tit':'Madaluxe Vault奢牌腕表2.7折起','text':'[4]留白 推荐'},
+          'tit':'Madaluxe Vault奢牌腕表2.7折起','text':'留白 推荐'},
       ],//精选活动
       yourlove: [
         {'img':'../../static/list/assume-4.jpg','name':'Aveeno Baby | 婴儿温和洗发水 含天然燕麦提取物含天然燕麦提取物','dprice':'$10.99','mpirce':'¥74','like':'0','colour':'1'},
@@ -220,15 +224,17 @@ export default {
         }
       }, 1000) 
     },
-    scrollBottom(){
-      // var scroll = (window.screen.height+document.documentElement.scrollTop)-30
-      // var clientHeight = document.body.clientHeight;
-      // console.log("clientHeight-"+clientHeight)
-      // console.log("scroll-"+scroll)
-      if (((window.screen.height + document.documentElement.scrollTop)-30 >= (document.body.clientHeight)) && this.REQUIRE) {
+    scrollBottom(e){
+      var scrollHeight = document.documentElement.scrollHeight //滚动条的总高度
+      var scroll = (window.screen.height+document.documentElement.scrollTop)
+      var clientHeight = document.body.clientHeight;
+      var top = e.srcElement.scrollingElement.scrollTop;//滚动条滚动时，距离顶部的距离
+      var screen = window.screen.height//屏幕高度
+      // console.log("screen--"+screen+"   top--"+top +"   scrollHeight--"+scrollHeight+"  screenTop"+(top+screen))
+      
+      if (((top+screen) >= scrollHeight ) && this.REQUIRE) {
         this.loading = true;
         this.pages = this.pages+1
-        console.log("pages--"+this.pages)
         setTimeout(() => {
           this.loading = false;
           this.productlen = this.productlen+5
@@ -236,11 +242,15 @@ export default {
             this.REQUIRE = false;
             setTimeout(() => {
               this.tipactive= true
-              // this.tipactive= false
             },500)
           }
         }, 1000)
       }
+    },
+    getRem(pwidth,prem){
+      var html = document.getElementsByTagName("html")[0];
+      var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+      html.style.fontSize = oWidth/pwidth*prem + "px";
     }
   }
 }
@@ -250,6 +260,12 @@ export default {
 <style scoped>
 /deep/ .van-tab--active {
   font-weight: 600;
+}
+/deep/ .van-tabs__content{
+  padding: 0 0.75rem;
+}
+/deep/ .van-col--12{
+  width: auto;
 }
 /* #region  猜你喜欢 */
 h2{
@@ -408,33 +424,31 @@ h2{
 .load{
   display: block;
   margin: 0 auto;
-  width: 90%;
-  height: 49px;
-  border-radius: 31px;
+  width: 100%;
+  height: 2.9rem;
+  border-radius: 1.5rem;
   background: #eee;
   color: #333;
-  font-size: 15px;
+  font-size: 0.875rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 .activitie h2{
   color: #333;
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: 600;
   text-align: center;
-  margin: 24px 0px 10px 0px;
+  margin: 1.5rem 0px 0.625rem 0px;
 }
 .activitie .actList{
   margin: 0 auto;
-  width: 93%;
-  height: 278px;
   background: #fff;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  border-radius: 0.625rem;
+  margin-bottom: 0.625rem;
 }
 .activitie .actList .actimg img{
-  border-radius: 10px;
+  border-radius: 0.625rem;
 }
 .act_bo{
   padding: 13px;
@@ -444,14 +458,15 @@ h2{
   vertical-align: middle;
 }
 .act_bo img{
-  width: 44px;
-  margin-right: 13px;
+  width: 2.5rem;
+  margin-right: 0.75rem;
 }
 .act_bo p{
-  font-size: 17px;
+  font-size: 1rem;
+  padding-bottom: 0.25rem;
 }
 .act_bo span{
-  font-size: 12px;
+  font-size: 0.75px;
   color: #999;
 }
 /* #endregion */
@@ -461,56 +476,72 @@ p{
   padding: 0;
 }
 .Hotlist{
-    margin: 0 auto;
-    background: #fff;
-    width: 93%;
-    height: 230px;
-    border-radius: 20px;
-    box-sizing: border-box;
+  margin: 0 auto;
+  background: #fff;
+  height: 230px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 0.6875rem 0.75rem 0.9375rem;
 }
-.hot_top i::before{
+.hot_top {
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.hot_top .i{
   content: '';
   width: 1px;
   height: 13px;
   background: rgb(184, 176, 176);
-  position: absolute;
-  top: 378px;
-  left: 108px;
+  margin: 0 0.3rem;
 }
 .Hotlist .hot_top img,.Hotlist .hot_top span{
   vertical-align: middle;
 }
 .hot_top .span{
-  font-size: 17px;
+  font-size: 15px;
   font-weight: bold;
 }
 .hot_top span:last-child{
   font-size: 12px;
-  padding-left: 5px;
   color: #999;
 }
-
 .imgGroup img{
   display: inline-block;
 }
 .hotsale .van-row{
   margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
 }
-.hotsale .host_content div,.hotsale .host_content img{
-  display: inline-block;
-  vertical-align: middle;
+.hotsale .host_content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.hotsale .host_content div{
-  margin-right: 20px;
+.hotsale .host_content .sub-left{
+  margin-right: 1.0625rem;
 }
-.hotsale .host_content div p{
+.hotsale .host_content .sub-left p{
   font-weight: 500;
   margin: 0;
+  font-size: 0.875rem;
 }
-.hotsale .host_content div span{
+.hotsale .host_content .sub-left span{
   font-weight: 500;
   font-size: 12px;
   color: rgb(210, 125, 63);
+}
+.hotsale .host_content .sub-right{
+  width: 4.375rem;
+  height: 4.375rem;
+  display: flex;
+  justify-content: center; 
+}
+.hotsale .host_content .sub-right img{
+  max-width: 4.375rem;
+  max-height: 4.375rem;
 }
 .host_content2 div{
   height: 4.9rem;
@@ -538,15 +569,22 @@ p{
   background-color: #696969;
 }
 /deep/ .van-swipe {
-  margin: 10px 10px 0 10px;
+  margin-top: 10px;
   border-radius: 10px;
+  height: 7.4rem;
 }
 /* #endregion */
 #body{
+  font-size: 14px;
+  line-height: 1;
+  background: #F7F7F7;
+  position: relative;
+  margin: 0;
+  margin-bottom: 30px;
+}
+body,html{
   width: 100%;
   height: 100%;
-  background: #F7F7F7;
-  margin-bottom: 30px;
 }
 h1, h2 {
   font-weight: normal;
