@@ -8,7 +8,7 @@
     <van-tabbar v-model="active" >
       <van-tabbar-item replace to="/home" icon="home-o">Hemo</van-tabbar-item>
       <van-tabbar-item replace to="/Category" icon="search">分类</van-tabbar-item>
-      <van-tabbar-item icon="friends-o">我的</van-tabbar-item>
+      <van-tabbar-item to="/My" icon="friends-o">我的</van-tabbar-item>
     </van-tabbar>
   <van-tabs v-model="tabactive" color="#323233" swipeable>
     <van-tab title="最新">

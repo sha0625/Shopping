@@ -10,9 +10,16 @@
   </van-tabbar>
   
   <sea/>-->
+  
   <div id="app">
     <sea></sea>
-    <van-tree-select height="162.5vw" :items="items" key="items" :main-active-index.sync="active">
+    <!--标签栏Tabbar-->
+    <van-tabbar v-model="Tabbleactive" >
+      <van-tabbar-item replace to="/HelloWorld" icon="home-o">Hemo</van-tabbar-item>
+      <van-tabbar-item replace to="/Category" icon="search">分类</van-tabbar-item>
+      <van-tabbar-item to="/My" icon="friends-o">我的</van-tabbar-item>
+    </van-tabbar>
+    <van-tree-select :style="{height: screen11}" :items="items" key="items" :main-active-index.sync="active">
       <template #content>
         <van-image v-if="active ===3" src="https://img01.yzcdn.cn/vant/apple-1.jpg" />
         <!--潮鞋【0】-->
@@ -39,21 +46,32 @@
               </div>
             </div>
           </div>
+          <div class="box">
+            <div class="title">Jordan</div>
+            <div class="pack">
+              <div class="item" v-for="(cont,index) in content" :key="index">
+                <div class="itemtop">
+                  <img :src="cont.img" alt="">
+                </div>
+                <div class="itembotton">{{cont.text}}</div>
+              </div>
+            </div>
+          </div>
         </div>
         
 
         <div v-if="active ===1" class="box">
-          <div v-for="(aa,index) in text" :key="index">
+         <!-- <div v-for="(aa,index) in text" :key="index">
             <div class="title1">111</div>
             <div class="pack">
               <div class="item">
                 <div class="itemtop">
-                 <!-- <img :src="aa[index].title.img" alt="">-->
+                  <img :src="aa[index].title.img" alt="">
                 </div>
                 <div class="itembotton">{{aa[0][0]}}</div>
               </div>
             </div>
-          </div>
+          </div>-->
         </div>
 
       </template>
@@ -62,13 +80,15 @@
 </template>
  
 <script>
-import sea from '../../components/tabbar/seachItem.vue'
+import sea from '../../components/Seach/seachItem.vue'
 export default {
   name: "tabbar",
   components: {sea },
   data() {
     return {
+      screen11 :'',
       active: 0,
+      Tabbleactive:1,
       items: [],//分类左侧
       content:[],//商品信息
       text:[],//测试一下~~
@@ -102,11 +122,13 @@ export default {
       this.text = res.data.kiss
       // console.log(this.content[0])
       for (let i = 0; i < this.text.length; i++) {
-        console.log(this.text[i])
-        
+        // console.log(this.text[i])        
       }
-      console.log(this.text.length)
+      // console.log(this.text.length)
     })
+    // this.screen = (window.screen.height)//屏幕高度
+    this.screen11 = screen.availHeight-50+"px"
+    console.log(this.screen11)
   },
   methods: {
     tab(index, val) {
