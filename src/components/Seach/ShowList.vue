@@ -17,23 +17,23 @@
 		<div class="filterChoose">
 			<div class="fillterItem">
 				<span class="fillterText">默认排序</span>
-				<img src="../../assets/img/button.png" alt="">
+				<img src="../../assets/images/category/button.png" alt="">
 			</div>
 			<div class="fillterItem">
 				<span class="fillterText">折扣</span>
-				<img src="../../assets/img/button.png" alt="">
+				<img src="../../assets/images/category/button.png" alt="">
 			</div>
 			<div class="fillterItem">
 				<span class="fillterText">品牌</span>
-				<img src="../../assets/img/button.png" alt="">
+				<img src="../../assets/images/category/button.png" alt="">
 			</div>
 			<div class="fillterItem">
 				<span class="fillterText">分类</span>
-				<img src="../../assets/img/button.png" alt="">
+				<img src="../../assets/images/category/button.png" alt="">
 			</div>
 			<div class="fillterItem">
 				<span class="fillterText">商家</span>
-				<img src="../../assets/img/button.png" alt="">
+				<img src="../../assets/images/category/button.png" alt="">
 			</div>
 		</div>
 	</div>	
