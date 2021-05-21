@@ -10,6 +10,8 @@ import My from '@/views/My/My'
 import Seach from '@/components/Seach/Seach'
 import Showlist from '@/components/Seach/ShowList'
 import information from '@/views/My/information.vue'
+import cropper from '@/views/My/cropper.vue'
+
 // import Tabbar from '@/components/Tabbar/Tabbar'
 
 Vue.use(Router)
@@ -55,6 +57,11 @@ export default new Router({
       path: '/information',
       name: 'information',
       component: information
+    },
+    {
+      path: '/cropper',
+      name: 'cropper',
+      component: cropper
     },
     // {
     //   path: '/Tabbar',

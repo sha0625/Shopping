@@ -12,9 +12,9 @@
                 <div class="setup"><img src="../../assets/images/icon/setup.png" alt=""></div>
                 <div class="news"><img src="../../assets/images/icon/xx.png" alt=""></div>
             </div>
-            <div class="he_po">
-                <div class="photo" @click="clickPhoto()"><img src="../../assets/carousel-2.png" alt=""></div>
-                <div class="name" v-model="name"><p >潜入夜</p></div>
+            <div class="he_po" @click="clickPhoto()">
+                <div class="photo" ><img :src="photo" alt=""></div>
+                <div class="name"><p>{{he_name}}</p></div>
             </div>
             <div class="he_list">
                 <div>
@@ -39,7 +39,7 @@
         <div class="order">
             <div class="order_he">
                 <div class="title">我的订单</div>
-                <div class="img"><img src="../../assets/images/my/arrow_right.png" alt="" width="12px" height="12px"></div>
+                <div class="img"><van-icon name="arrow" color="#CACACA"/></div>
             </div>
             <div class="order_details">
                 <div class="details_list">
@@ -76,7 +76,7 @@
                 </div>                
                 <div class="right">
                     <div class="card"><p>邀请可得￥70</p></div>
-                    <img class="arrow" src="../../assets/images/my/arrow_right.png" alt="">
+                    <van-icon name="arrow" color="#CACACA"/>
                 </div>
             </div>
             <div class="list">
@@ -86,7 +86,7 @@
                 </div>                
                 <div class="right">
                     <div class="text">1000积分</div>
-                    <img class="arrow" src="../../assets/images/my/arrow_right.png" alt="">
+                    <van-icon name="arrow" color="#CACACA" />
                 </div>
             </div>
             <div class="list" v-for="(item,index) in contentList" :key="index">
@@ -95,22 +95,26 @@
                     <div class="text">{{item.text}}</div>
                 </div>                
                 <div class="right">
-                    <img class="arrow" src="../../assets/images/my/arrow_right.png" alt="">
+                    <van-icon name="arrow" color="#CACACA"/>
                 </div>
             </div>
         </div>
-        <info :inputName="name"></info>
     </div>
 </template>
 <script>
 import info from './information.vue'
 export default {
     components: {
-        info
+        'v-header':info
     },
     data(){
         return{
+            aaa: '我是一个首页home组件',
+            title: '首页', //将父组件的值传给子组件:父组件绑定子组件属性，子组件接收父组件属性
+            flag: true,
             name:'',
+            photo:'../../../static/carousel-2.png',
+            he_name:'潜入夜',
             Tabbleactive: 2,
             contentList: [
                 {"icon":"../../../static/my/security.png","text":"正品保障"},
@@ -120,11 +124,17 @@ export default {
         }
     },
     methods:{
+        run (data){
+            alert("我是父组件My的方法"+data)
+        },
         // 点击头像 进入information资料详情
         clickPhoto(){
-            console.log("111")
             this.$router.push({
-                path:"/information"
+                path: '/information',
+                query: {
+                    mallCode: this.photo,
+                    name: this.he_name
+                }
             })
         }
     }
@@ -279,12 +289,12 @@ export default {
     }
     .content .list .right p{
         text-align: center;
-        font-size: 0.5rem;
+        font-size: 0.75rem;
         margin-top: 0.4rem;
         color: #CE7E43;
     }
     .content .list .right .text{
-        font-size: 0.5rem;
+        font-size: 0.75rem;
         color: #CE7E43;
     }
     .content .list .right .arrow{

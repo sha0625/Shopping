@@ -13,6 +13,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "better-scroll": "^2.3.0",
+    "cropperjs": "^1.5.11",
     "js-base64": "^3.6.0",
     "lib-flexible": "^0.3.2",
     "px2rem-loader": "^0.1.9",
