@@ -1,6 +1,6 @@
 <template>
     <div style="background:black">
-        <van-cell-group >
+        <van-cell-group style="display:none">
             <van-cell title="头像" center >
                 <template #right-icon>
                     <img class="photo" @click="clickphoto" :src="photoInfo.avatar" alt="">
@@ -15,7 +15,7 @@
         </van-cell-group>
 
         <!-- cropper更换头像 -->
-        <div class="cropper" v-if="Mask" >
+        <div class="cropper" v-if="Mask" style="display:none" >
             <div class="choice">
                 <van-button plain class="photograph">拍照</van-button>
                 <van-button plain class="album" @click.stop="uploadHeadImg">从相册选择</van-button>
@@ -26,7 +26,7 @@
         </div>
 
         <!-- 修剪照片 -->
-        <div class="upImg" style="display:none">
+        <div class="upImg" style="display:block">
             <div class="head"> 
                 <div class="cross_left">
                     <van-icon name="cross" size="1.5rem" color="#ffffff"/> 
@@ -37,18 +37,16 @@
                 </div>
             </div>
             <div class="Tailor" :style="{'height':screenHeight}">
-                <img :src="photoInfo.avatar" alt="">
+                <img src="../../assets/top.png" alt="">
             </div>
         </div>
         <div class="jm-theme" v-if="Mask"></div>
     </div>
 </template>
 <script>
-import cropper from './cropper.vue'
 import Cropper from 'cropperjs'
 export default {
     components:{
-        cropper
     },
     data(){
         return{

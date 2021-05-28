@@ -21,7 +21,7 @@ Vue.use(Vant);
 Vue.use(Lazyload);
 Vue.prototype.$axios = axios
 // Vue.use(Button, Tabbar, TabbarItem );
-
+window.PIC_FILE_HOST = 'http://192.168.1.21/src/asstes/files/'
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

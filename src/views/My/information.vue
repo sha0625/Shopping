@@ -13,9 +13,9 @@
                 </template>
             </van-cell>
         </van-cell-group>
-
-        <!-- cropper更换头像 -->
-        <div class="cropper" v-if="Mask">
+ 
+        <!-- 选择拍照或相册 -->
+        <div class="action" v-if="Mask">
             <div class="choice">
                 <van-button plain class="photograph">拍照</van-button>
                 <van-button plain class="album" @click.stop="uploadHeadImg">从相册选择</van-button>
@@ -23,20 +23,6 @@
 
             <van-button plain class="cancel" @click="cancel">取消</van-button>
             <input type="file" accept="image/*" @change="handleFile" class="hiddenInput"/>
-        </div>
-        <div class="upImg"  style="display:none">
-            <div class="head"> 
-                <div class="cross_left">
-                    <van-icon name="cross" size="1.5rem" color="#ffffff"/> 
-                    <span>修剪照片</span>
-                </div>
-                <div class="cross_right">
-                    <van-icon name="success" size="1.5rem" color="#ffffff"/>
-                </div>
-            </div>
-            <div class="Tailor" :style="{'height':screenHeight}">
-                <img :src="photoInfo.avatar" alt="">
-            </div>
         </div>
         <div class="jm-theme" v-if="Mask"></div>
     </div>
@@ -54,32 +40,28 @@ export default {
             mallCode: '',
             routerParams:'',
             he_name:'',
-            screenHeight:'',
             Mask:false,//遮罩显隐
             photoInfo: {
                 // 初始图片
                 avatar: ''
             },
+            id:'',
+            cimg:''
         }
     },
     created(){
-        this.$nextTick(() => {
-            var height = window.screen.height//屏幕高度
-            var headHeight= document.querySelectorAll("div[class='head']")[0].clientHeight;
-            console.log(headHeight)
-            this.screenHeight = (height-headHeight)+"px";
-         });
         this.getParams();
     },
     mounted(){
         this.getParams();
-
     },
     methods:{
-        // 获取My页面传来的头像等值...
         getParams(){
+            // 获取My页面传来的头像等值...
             this.photoInfo.avatar = this.$route.query.mallCode
             this.he_name =this.$route.query.name
+
+            
             // this.mallInfo.searchMap.mallCode = routerParams;
             // console.log(this.photoInfo.avatar +this.he_name)
         },
@@ -93,6 +75,19 @@ export default {
         // 选择图片上传
         uploadHeadImg(){
             this.$el.querySelector(".hiddenInput").click();
+            setTimeout(()=>{
+                this.$router.push({
+                    path: '/cropper',
+                    name:'cropper',
+                    params:{
+                        cimg: this.photoInfo.avatar
+                    }
+                })
+            },3000)
+            
+        },
+        ff(){
+           
         },
         // 
         handleFile(e){
@@ -106,6 +101,7 @@ export default {
                 let res = data.target || data.srcElement
                 // 成功读取后输出结果
                 this.photoInfo.avatar = res.result
+            // console.log(res.result)
             }
             reader.readAsDataURL(file)
             this.Mask = false
@@ -113,6 +109,9 @@ export default {
         // 取消上传
         cancel(){
             this.Mask = false
+            // 获取cropper页面的裁剪后图片
+            var routerParams = this.$route.params.img
+            this.photoInfo.avatar = routerParams
         },
     },
     watch: {
@@ -123,37 +122,6 @@ export default {
 }
 </script>
 <style scoped>
-.upImg{
-    width: 100%;
-}
-.upImg .head{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin:0 0.5rem;
-}
-.upImg .head .cross_left{
-    display: flex;
-    align-items: center;
-}
-.upImg .head .cross_left span{
-    color: #ffffff;
-    font-size: 1.25rem;
-    font-weight: 500;
-    letter-spacing: 1px;
-    margin: 0.5rem 0 0.5rem 0.75rem;
-}
-.upImg .Tailor{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-}
-.upImg .Tailor img{
-    max-width: 100%;
-    max-height: 100%;
-    margin: auto;
-}
 .hiddenInput{
     display: none;
 }
@@ -175,25 +143,25 @@ export default {
     background: rgb(0, 0, 0);
     opacity: .55;
 }
-.cropper{
+.action{
     width: 100%;
     position: absolute;
     bottom: 0;
     z-index: 99;
     animation: Loading 0.5s ease-in;
 }
-.cropper .choice{
+.action .choice{
     margin-bottom: 0.75rem;    
 }
-.cropper .choice .photograph{
+.action .choice .photograph{
     color: #AE201E;
     border-bottom: none;
     border-radius: 0.5rem 0.5rem 0 0;
 }
-.cropper .choice .album{
+.action .choice .album{
     border-radius: 0 0 0.5rem 0.5rem;
 }
-.cropper .cancel{
+.action .cancel{
     margin-bottom: 0.8rem;
     border-radius: 0.5rem;
 }

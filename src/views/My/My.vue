@@ -131,6 +131,7 @@ export default {
         clickPhoto(){
             this.$router.push({
                 path: '/information',
+                // path: '/A',
                 query: {
                     mallCode: this.photo,
                     name: this.he_name
@@ -200,6 +201,7 @@ export default {
     .he_list>div>div{
         font-weight: bold;
         font-size: 1rem;
+        font-family: Hiragino Sans GB;
     }
     .he_list>div>p{
         font-size: 0.25rem;

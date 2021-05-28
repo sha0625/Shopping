@@ -112,7 +112,7 @@
       <div class="assume">
         <h2>猜你喜欢</h2>
         <div class="content">
-          <div class="product-item" v-for="(item,index) in list" :key="index" v-if="index < productlen">
+          <div class="product-item" @click="get_details" v-for="(item,index) in list" :key="index" v-if="index < productlen">
             <div class="img-wrap">
               <img alt="" :src="item.img">
             </div>        
@@ -209,6 +209,11 @@ export default {
     window.addEventListener('scroll',this.scrollBottom)
   },
   methods: {
+    get_details(){
+      this.$router.push({
+        path:'/Pro_deta'
+      })
+    },
     onSearch(){
       this.$router.push({
         path:'/Seach'
