@@ -1,9 +1,8 @@
 <template>
   <div class="box">
     <div class="p-product-detail">
-
-
-			<div class="carousel">
+    
+		<!--	<div class="carousel">
 				<div class="tab">
 					<span class="active" @click="tabclicke" ref="span">简欧</span>
 					<span @click="tabclicke" ref="span">中式</span>
@@ -11,7 +10,6 @@
 				<div class="swiper-container s2">
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
-							<!--简欧-->
 							<div class="swiper-container jo">
 								<div class="swiper-wrapper">
 									<div class="swiper-slide">1</div>
@@ -23,7 +21,6 @@
 							</div>
 						</div>
 						<div class="swiper-slide">
-							<!--中式-->
 							<div class="swiper-container zs">
 								<div class="swiper-wrapper">
 									<div class="swiper-slide">中式 slide1</div>
@@ -36,11 +33,9 @@
 						</div>
 					</div>
 				</div>
-			</div>
-
-    
-
-    <!--  <div class="carousel">
+			</div>   
+-->
+      <div class="carousel">
         <div class="c-carousel">
           <div class="carousel-slice">
             <van-swipe :autoplay="33000">
@@ -52,7 +47,7 @@
         </div>
         <div class="m-color-picker">
         </div>
-      </div> -->
+      </div>
       <!-- 商品信息 -->
       <div class="m-product-info">
         <div class="preview-price">

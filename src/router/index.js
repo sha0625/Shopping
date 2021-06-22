@@ -11,7 +11,11 @@ import Seach from '@/components/Seach/Seach'
 import Showlist from '@/components/Seach/ShowList'
 import information from '@/views/My/information.vue'
 import cropper from '@/views/My/cropper.vue'
+import newcro from '@/views/My/newcro.vue'
+
 import Pro_deta from '@/views/product/product_details.vue'
+import pro from '@/views/product/pro.vue'
+
 import A from '@/views/A/A.vue'
 
 // import Tabbar from '@/components/Tabbar/Tabbar'
@@ -66,9 +70,19 @@ export default new Router({
       component: cropper
     },
     {
+      path: '/newcro',
+      name: 'newcro',
+      component: newcro
+    },
+    {
       path: '/Pro_deta',
       name: 'Pro_deta',
       component: Pro_deta
+    },
+    {
+      path: '/pro',
+      name: 'pro',
+      component: pro
     },
     {
       path: '/A',

@@ -15,6 +15,11 @@ import 'vant/lib/index.css';
 import axios from 'axios'
 import VueResource from 'vue-resource';
 
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/swiper-bundle.css'
+
+import Swiper2, {Navigation, Pagination} from 'swiper'
+Swiper2.use([Navigation, Pagination]);
 // import './utils/rem.js'
 
 
@@ -23,6 +28,7 @@ Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(Vant);
 Vue.use(Lazyload);
+Vue.use(VueAwesomeSwiper)
 Vue.prototype.$axios = axios
     // Vue.use(Button, Tabbar, TabbarItem );
 window.PIC_FILE_HOST = 'http://192.168.1.21/src/asstes/files/'

@@ -75,15 +75,15 @@ export default {
         // 选择图片上传
         uploadHeadImg(){
             this.$el.querySelector(".hiddenInput").click();
-            setTimeout(()=>{
-                this.$router.push({
-                    path: '/cropper',
-                    name:'cropper',
-                    params:{
-                        cimg: this.photoInfo.avatar
-                    }
-                })
-            },3000)
+            // setTimeout(()=>{
+            //     this.$router.push({
+            //         path: '/newcro',
+            //         name:'newcro',
+            //         params:{
+            //             cimg: this.photoInfo.avatar
+            //         }
+            //     })
+            // },3000)
             
         },
         ff(){
